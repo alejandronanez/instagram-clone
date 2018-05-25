@@ -3,14 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cross-env": "^5.1.6",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_PATH=src react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged",
+    "eslint": "eslint src"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-react": "^7.8.2",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.2",
+    "prettier": "1.12.1"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
   }
 }

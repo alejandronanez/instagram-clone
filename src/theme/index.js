@@ -11,6 +11,15 @@ const pallete = {
   white: '#fff',
 };
 
+const values = {
+  maxWidth: '1010px',
+  breakpoints: {
+    small: '768px',
+    big: '1024px',
+  },
+};
+
 export default {
   pallete,
+  values,
 };

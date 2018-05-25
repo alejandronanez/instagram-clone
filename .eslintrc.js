@@ -5,6 +5,7 @@ module.exports = {
     node: true,
   },
   extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
+  parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module',
   },
@@ -14,5 +15,6 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
+    'no-console': [1],
   },
 };

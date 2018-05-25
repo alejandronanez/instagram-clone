@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { Navigation } from 'components/Navigation/Navigation';
 
 class App extends Component {
   render() {
-    return <div>Instagram clone</div>;
+    return (
+      <Fragment>
+        <Navigation />
+        <div>Instagram clone</div>
+      </Fragment>
+    );
   }
 }
 

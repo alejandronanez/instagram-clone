@@ -13,6 +13,7 @@ const pallete = {
 
 const values = {
   maxWidth: '1010px',
+  maxSecondaryWidth: '935px',
   breakpoints: {
     small: '768px',
     big: '1024px',

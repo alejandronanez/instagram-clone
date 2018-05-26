@@ -11,7 +11,6 @@ export const ContentContainer = styled(MaxWidthSecondaryContainer)`
 `;
 
 export const PhotoContainer = styled(FlexColumn)`
-  background-color: blue;
   max-width: 614px;
   margin-right: 28px;
   width: 100%;

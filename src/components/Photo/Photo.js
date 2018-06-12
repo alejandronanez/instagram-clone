@@ -21,7 +21,7 @@ export class Photo extends Component {
         <UserPhoto>
           <img
             alt="The description"
-            src="https://images.pexels.com/photos/952421/pexels-photo-952421.png?cs=srgb&dl=attractive-close-up-eye-952421.jpg&fm=jpg"
+            src="https://picsum.photos/2000/2000/?image=100"
           />
         </UserPhoto>
         <UserActions>

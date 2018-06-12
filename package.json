@@ -4,13 +4,17 @@
   "private": true,
   "dependencies": {
     "cross-env": "^5.1.6",
+    "npm-run-all": "^4.1.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
     "styled-components": "^3.3.0"
   },
   "scripts": {
-    "start": "cross-env NODE_PATH=src react-scripts start",
+    "start:server": "json-server src/db/index.js --port 3001",
+    "start:ui": "react-scripts start",
+    "start":
+      "cross-env NODE_PATH=src npm-run-all --parallel start:ui start:server",
     "build": "cross-env react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -21,7 +25,9 @@
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-react": "^7.8.2",
+    "faker": "^4.1.0",
     "husky": "^0.14.3",
+    "json-server": "^0.14.0",
     "lint-staged": "^7.1.2",
     "prettier": "1.12.1"
   },

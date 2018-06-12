@@ -6,7 +6,6 @@ import {
   UserPhoto,
   Actions,
   Likes,
-  Timestamp,
   IGIcon,
   ActionIconWrapper,
   UserActions,
@@ -20,7 +19,10 @@ export class Photo extends Component {
           <UserCard />
         </Author>
         <UserPhoto>
-          <img src="https://images.pexels.com/photos/952421/pexels-photo-952421.png?cs=srgb&dl=attractive-close-up-eye-952421.jpg&fm=jpg" />
+          <img
+            alt="The description"
+            src="https://images.pexels.com/photos/952421/pexels-photo-952421.png?cs=srgb&dl=attractive-close-up-eye-952421.jpg&fm=jpg"
+          />
         </UserPhoto>
         <UserActions>
           <Actions>

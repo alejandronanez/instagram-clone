@@ -19,6 +19,14 @@ export const Actions = styled(FlexRow)`
 
 export const IGIcon = styled.i`
   font-size: 23px;
+
+  &.heart-liked {
+    color: red;
+  }
+
+  &.bookmarked {
+    color: ${({ theme }) => theme.pallete.mineShaft};
+  }
 `;
 
 export const ActionIconWrapper = styled.div`

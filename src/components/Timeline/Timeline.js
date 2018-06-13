@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
 import { Photo } from 'components/Photo/Photo';
-import { getFromApi } from 'api/api';
+import { ApiConsumer } from 'components/ApiConsumer/ApiConsumer';
 
 export class Timeline extends Component {
-  state = {
-    photos: [],
-  };
-
-  async componentDidMount() {
-    const { data } = await getFromApi('photos');
-
-    this.setState(() => ({
-      photos: data,
-    }));
-  }
-
-  renderPhotos = () => {
-    return this.state.photos.map(photo => (
+  renderPhotos = photos => {
+    return photos.map(photo => (
       <Photo
         key={photo.id}
         bookmarked={photo.bookmarked}
@@ -29,6 +17,22 @@ export class Timeline extends Component {
   };
 
   render() {
-    return <div>{this.renderPhotos()}</div>;
+    return (
+      <div>
+        <ApiConsumer endpoint="photos">
+          {({ loading, error, data }) => {
+            if (loading) {
+              return <h1>Loading timeline...</h1>;
+            }
+
+            if (error) {
+              return <h1>{error.message}</h1>;
+            }
+
+            return this.renderPhotos(data);
+          }}
+        </ApiConsumer>
+      </div>
+    );
   }
 }

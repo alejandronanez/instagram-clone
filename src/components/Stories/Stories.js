@@ -31,7 +31,7 @@ export class Stories extends Component {
         <ApiConsumer endpoint="users">
           {({ loading, error, data }) => {
             if (loading) {
-              return <h1>Loading ...</h1>;
+              return <h1>Loading stories...</h1>;
             }
 
             if (error) {

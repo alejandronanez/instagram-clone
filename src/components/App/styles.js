@@ -20,7 +20,7 @@ export const ContentContainer = styled(MaxWidthSecondaryContainer)`
   }
 `;
 
-export const PhotoContainer = styled(FlexColumn)`
+export const TimelineWrapper = styled(FlexColumn)`
   margin-left: auto;
   margin-right: auto;
   max-width: 614px;

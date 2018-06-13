@@ -6,16 +6,16 @@ export class UserCard extends Component {
   render() {
     return (
       <Wrapper>
-        <Avatar />
+        <Avatar image={this.props.avatar} />
         <UserInfoWrapper>
           <UserName
             onClick={() => {
               console.log('username clicked');
             }}
           >
-            alejandronanez
+            {this.props.username}
           </UserName>
-          <UserSubtitle>Alejandro Ñáñez Ortiz</UserSubtitle>
+          <UserSubtitle>{this.props.fullname}</UserSubtitle>
         </UserInfoWrapper>
       </Wrapper>
     );

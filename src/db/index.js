@@ -9,6 +9,12 @@ function getPhotos(totalPhotos = 20) {
     liked: faker.random.boolean(),
     bookmarked: faker.random.boolean(),
     photo: getImageUrl(faker.random.number({ min: 1, max: 999 })),
+    user: {
+      id: faker.random.uuid(),
+      name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      username: faker.internet.userName().toLowerCase(),
+      avatar: faker.internet.avatar(),
+    },
   }));
 }
 

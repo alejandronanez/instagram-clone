@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import { UserCard } from 'components/UserCard/UserCard';
 import {
   Wrapper,
@@ -13,26 +14,38 @@ import {
 
 export class Photo extends Component {
   render() {
+    const { bookmarked, liked, likes, photo, user } = this.props;
+    const heartClass = cx('fa-heart', {
+      'fas heart-liked': liked,
+      fal: !liked,
+    });
+
+    const bookmarkClass = cx('fa-bookmark', {
+      'fas bookmarked': bookmarked,
+      fal: !bookmarked,
+    });
+
     return (
       <Wrapper>
         <Author>
-          <UserCard />
+          <UserCard
+            username={user.username}
+            fullname={user.name}
+            avatar={user.avatar}
+          />
         </Author>
         <UserPhoto>
-          <img
-            alt="The description"
-            src="https://picsum.photos/2000/2000/?image=100"
-          />
+          <img alt={`Photo with ${likes} like(s)`} src={photo} />
         </UserPhoto>
         <UserActions>
           <Actions>
             <ActionIconWrapper>
-              <IGIcon className="fal fa-heart" />
+              <IGIcon className={heartClass} />
               <IGIcon className="fal fa-comment" />
             </ActionIconWrapper>
-            <IGIcon className="fal fa-bookmark" />
+            <IGIcon className={bookmarkClass} />
           </Actions>
-          <Likes>11 likes</Likes>
+          <Likes>{likes} likes</Likes>
         </UserActions>
       </Wrapper>
     );

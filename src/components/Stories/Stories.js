@@ -7,8 +7,20 @@ import {
   FriendsStories,
 } from './styles';
 import { UserCard } from 'components/UserCard/UserCard';
+import { ApiConsumer } from 'components/ApiConsumer/ApiConsumer';
 
 export class Stories extends Component {
+  renderCard = storyData => {
+    return storyData.map(story => (
+      <UserCard
+        key={story.id}
+        avatar={story.avatar}
+        fullname={story.name}
+        username={story.username}
+      />
+    ));
+  };
+
   render() {
     return (
       <Wrapper>
@@ -16,26 +28,19 @@ export class Stories extends Component {
           <Title>Stories</Title>
           <TitleCTA>Watch all</TitleCTA>
         </TitleWrapper>
-        <FriendsStories>
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-        </FriendsStories>
+        <ApiConsumer endpoint="users">
+          {({ loading, error, data }) => {
+            if (loading) {
+              return <h1>Loading stories...</h1>;
+            }
+
+            if (error) {
+              return <h1>{error}</h1>;
+            }
+
+            return <FriendsStories>{this.renderCard(data)}</FriendsStories>;
+          }}
+        </ApiConsumer>
       </Wrapper>
     );
   }

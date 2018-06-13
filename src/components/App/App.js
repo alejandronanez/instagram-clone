@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { Navigation } from 'components/Navigation/Navigation';
 import { UserProfile } from 'components/UserProfile/UserProfile';
 import { Stories } from 'components/Stories/Stories';
-import { Photo } from 'components/Photo/Photo';
-import { ContentContainer, PhotoContainer, UpdatesContainer } from './styles';
+import { Timeline } from 'components/Timeline/Timeline';
+import { ContentContainer, TimelineWrapper, UpdatesContainer } from './styles';
 
 class App extends Component {
   render() {
@@ -11,12 +11,9 @@ class App extends Component {
       <Fragment>
         <Navigation />
         <ContentContainer>
-          <PhotoContainer>
-            <Photo />
-            <Photo />
-            <Photo />
-            <Photo />
-          </PhotoContainer>
+          <TimelineWrapper>
+            <Timeline />
+          </TimelineWrapper>
           <UpdatesContainer>
             <UserProfile />
             <Stories />

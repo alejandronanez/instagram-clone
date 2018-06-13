@@ -7,23 +7,11 @@ import {
   FriendsStories,
 } from './styles';
 import { UserCard } from 'components/UserCard/UserCard';
-import { getFromApi } from 'api/api';
+import { ApiConsumer } from 'components/ApiConsumer/ApiConsumer';
 
 export class Stories extends Component {
-  state = {
-    stories: [],
-  };
-
-  async componentDidMount() {
-    const { data } = await getFromApi('users');
-
-    this.setState(() => ({
-      stories: data,
-    }));
-  }
-
-  renderCard = () => {
-    return this.state.stories.map(story => (
+  renderCard = storyData => {
+    return storyData.map(story => (
       <UserCard
         key={story.id}
         avatar={story.avatar}
@@ -40,7 +28,19 @@ export class Stories extends Component {
           <Title>Stories</Title>
           <TitleCTA>Watch all</TitleCTA>
         </TitleWrapper>
-        <FriendsStories>{this.renderCard()}</FriendsStories>
+        <ApiConsumer endpoint="users">
+          {({ loading, error, data }) => {
+            if (loading) {
+              return <h1>Loading ...</h1>;
+            }
+
+            if (error) {
+              return <h1>{error}</h1>;
+            }
+
+            return <FriendsStories>{this.renderCard(data)}</FriendsStories>;
+          }}
+        </ApiConsumer>
       </Wrapper>
     );
   }
